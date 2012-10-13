@@ -19,10 +19,21 @@ class DatomicIntegrationTest extends Specification {
         applySchema(connection)
         seedDatabase(connection)
 
-        when: "time is called"
+        when: "a query for all entities that have the attribute community/name is run"
+        // find all variables for community where any entity has the community/name attribute
+        def results = Peer.q("[:find ?c :where [?c :community/name]]", connection.db())
+        assert results
 
+        then:  "150 instances are found"
+        assert 150 == results.size()
 
-        then:  "time is not null"
+        // iterate over the results
+        results.each {
+            def id = it.get(0)
+            def entity = connection.db().entity(id)
+            def name = entity.get(":community/name")
+            println "${id} = ${name}"
+        }
     }
 
     private void seedDatabase(Connection connection) {
