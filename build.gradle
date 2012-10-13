@@ -33,6 +33,8 @@ subprojects {
         runtime "com.h2database:h2:${h2Version}"
         runtime "org.apache.tomcat:tomcat-jdbc:${tomcatJdbcVersion}"
         runtime "io.netty:netty:${nettyVersion}"
+        runtime "ch.qos.logback:logback-core:${logbackVersion}"
+        runtime "ch.qos.logback:logback-classic:${logbackVersion}"
     }
 
 
