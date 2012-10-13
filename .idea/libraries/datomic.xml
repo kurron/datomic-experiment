@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="datomic">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/build/dependencies/datomic-free-0.8.3551.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

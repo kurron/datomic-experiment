@@ -6,11 +6,13 @@ allprojects {
         }
     }
 
+    apply plugin: 'project-report'
+
     task generateWrapper(type: Wrapper) {
         gradleVersion = '1.2'
     }
 
-    defaultTasks 'clean', 'build', 'collectJars'
+    defaultTasks 'clean', 'projectReport', 'collectJars', 'build'
 }
 
 subprojects {
@@ -19,16 +21,28 @@ subprojects {
 
     dependencies {
         groovy "org.codehaus.groovy:groovy-all:${groovyVersion}"
-        compile 'datomic:datomic-free:0.8.3551@jar'
+        compile ":datomic-free:${datomicVersion}"
+        testCompile "org.clojure:clojure:${clojureVersion}"
         testCompile "org.spockframework:spock-core:${spockVersion}"
         testCompile "org.hamcrest:hamcrest-core:${hamcrestVersion}" // only necessary if Hamcrest matchers are used
+        runtime "org.slf4j:slf4j-api:${slf4jVersion}"
+        runtime "org.apache.lucene:lucene-core:${luceneVersion}"
+        runtime "com.google.guava:guava:${guavaVersion}"
+        runtime "org.hornetq:hornetq-core:${hornetqVersion}"
+        runtime "commons-codec:commons-codec:${commonsCodecVersion}"
+        runtime "com.h2database:h2:${h2Version}"
+        runtime "org.apache.tomcat:tomcat-jdbc:${tomcatJdbcVersion}"
+        runtime "io.netty:netty:${nettyVersion}"
     }
 
 
-    defaultTasks 'clean', 'build', 'collectJars'
+    defaultTasks 'clean', 'projectReport', 'collectJars', 'build'
 
     task collectJars(type: Copy) {
-        into "$buildDir/output/lib"
+        def dependencies = "${rootDir}/build/dependencies"
+        def directory = new File(dependencies)
+        directory.mkdirs()
+        into dependencies
         from configurations.testRuntime
     }
 }
