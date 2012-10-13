@@ -3,24 +3,56 @@ package org.kurron.datomic
 import spock.lang.Specification
 import datomic.Peer
 import datomic.Util
+import datomic.Connection
 
 /**
  * Test driver for the Datomic database.
  */
 class DatomicIntegrationTest extends Specification {
 
+    //final String uri = "datomic:free://localhost:4334/seattle"
+    final String uri = "datomic:mem://seattle"
+
     def "given_when_then"() {
-        given: "concrete Devan"
-        String uri = "datomic:free://localhost:4334/seattle"
-        Peer.createDatabase(uri)
-        def stream = System.classLoader.getResourceAsStream("/seattle-schema.dtm")
-        assert stream != null
-        Reader schema_rdr = new InputStreamReader(stream)
-        schema_tx = Util.readAll(schema_rdr).get(0)
+        given: "populated database"
+        Connection connection = openConnection()
+        applySchema(connection)
+        seedDatabase(connection)
 
         when: "time is called"
 
 
         then:  "time is not null"
+    }
+
+    private void seedDatabase(Connection connection) {
+        def results = connection.transact(loadTransaction("seattle-data.dtm")).get()
+        assert results
+    }
+
+    private def loadTransaction(String resource) {
+        def seedTransaction = Util.readAll(loadResource(resource)).get(0)
+        assert seedTransaction
+        seedTransaction
+    }
+
+    private InputStreamReader loadResource(String resource) {
+        def seedStream = getClass().getClassLoader().getResourceAsStream(resource)
+        assert seedStream
+        def seedReader = new InputStreamReader(seedStream)
+        seedReader
+    }
+
+    private void applySchema(Connection connection) {
+        def schemaInsertRestults = connection.transact(loadTransaction("seattle-schema.dtm")).get()
+        assert schemaInsertRestults
+    }
+
+    private Connection openConnection() {
+        def created = Peer.createDatabase(uri)
+        assert created
+        def connection = Peer.connect(uri)
+        assert connection
+        connection
     }
 }

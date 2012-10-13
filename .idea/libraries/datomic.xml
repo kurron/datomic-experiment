@@ -3,7 +3,9 @@
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/build/dependencies/datomic-free-0.8.3551.jar!/" />
     </CLASSES>
-    <JAVADOC />
+    <JAVADOC>
+      <root url="http://docs.datomic.com/javadoc" />
+    </JAVADOC>
     <SOURCES />
   </library>
 </component>
