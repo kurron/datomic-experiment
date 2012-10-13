@@ -32,7 +32,9 @@ class DatomicIntegrationTest extends Specification {
             def id = it.get(0)
             def entity = connection.db().entity(id)
             def name = entity.get(":community/name")
-            println "${id} = ${name}"
+            def neighborhood = entity.get(":community/neighborhood")
+            def neighborhoodName = neighborhood.get(":neighborhood/name")
+            println "${id} The community of ${name} is in the neighborhood of ${neighborhoodName}"
         }
     }
 
