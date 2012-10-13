@@ -13,7 +13,7 @@ class DatomicIntegrationTest extends Specification {
     //final String uri = "datomic:free://localhost:4334/seattle"
     final String uri = "datomic:mem://seattle"
 
-    def "given_when_then"() {
+    def "community name query"() {
         given: "populated database"
         Connection connection = openConnection()
         applySchema(connection)
@@ -47,7 +47,7 @@ class DatomicIntegrationTest extends Specification {
         seedTransaction
     }
 
-    private InputStreamReader loadResource(String resource) {
+    private Reader loadResource(String resource) {
         def seedStream = getClass().getClassLoader().getResourceAsStream(resource)
         assert seedStream
         def seedReader = new InputStreamReader(seedStream)
@@ -55,8 +55,8 @@ class DatomicIntegrationTest extends Specification {
     }
 
     private void applySchema(Connection connection) {
-        def schemaInsertRestults = connection.transact(loadTransaction("seattle-schema.dtm")).get()
-        assert schemaInsertRestults
+        def schemaInsertResults = connection.transact(loadTransaction("seattle-schema.dtm")).get()
+        assert schemaInsertResults
     }
 
     private Connection openConnection() {
