@@ -19,6 +19,12 @@ subprojects {
 
     apply plugin: 'groovy'
 
+    configurations {
+        sourceArchives {
+            description = 'Artifact that contains the source code of the dependencies.'
+        }
+    }
+
     dependencies {
         groovy "org.codehaus.groovy:groovy-all:${groovyVersion}"
         compile ":datomic-free:${datomicVersion}"
@@ -35,17 +41,29 @@ subprojects {
         runtime "io.netty:netty:${nettyVersion}"
         runtime "ch.qos.logback:logback-core:${logbackVersion}"
         runtime "ch.qos.logback:logback-classic:${logbackVersion}"
+
+        sourceArchives "org.codehaus.groovy:groovy-all:${groovyVersion}:sources"
+        sourceArchives "org.clojure:clojure:${clojureVersion}:sources"
+        sourceArchives "org.spockframework:spock-core:${spockVersion}:sources"
+        sourceArchives "org.hamcrest:hamcrest-core:${hamcrestVersion}:sources" // only necessary if Hamcrest matchers are used
+        sourceArchives "org.slf4j:slf4j-api:${slf4jVersion}:sources"
+        sourceArchives "org.apache.lucene:lucene-core:${luceneVersion}:sources"
+        sourceArchives "com.google.guava:guava:${guavaVersion}:sources"
+        sourceArchives "org.hornetq:hornetq-core:${hornetqVersion}:sources"
+        sourceArchives "commons-codec:commons-codec:${commonsCodecVersion}:sources"
+        sourceArchives "com.h2database:h2:${h2Version}:sources"
+        sourceArchives "org.apache.tomcat:tomcat-jdbc:${tomcatJdbcVersion}:sources"
+        sourceArchives "io.netty:netty:${nettyVersion}:sources"
+        sourceArchives "ch.qos.logback:logback-core:${logbackVersion}:sources"
+        sourceArchives "ch.qos.logback:logback-classic:${logbackVersion}:sources"
     }
 
 
     defaultTasks 'clean', 'projectReport', 'collectJars', 'build'
 
     task collectJars(type: Copy) {
-        def dependencies = "${rootDir}/build/dependencies"
-        def directory = new File(dependencies)
-        directory.mkdirs()
-        into dependencies
-        from configurations.testRuntime
+        into "$rootDir/build/dependencies"
+        from( [configurations.testRuntime,configurations.sourceArchives] )
     }
 }
 
