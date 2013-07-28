@@ -18,12 +18,11 @@ allprojects {
         datomicVersion = '0.8.4020.26'
     }
 
-    configurations {
-        all*.exclude group: 'commons-logging'
-        all*.exclude group: 'log4j'
-        all*.exclude group: 'slf4j'
-        all*.exclude group: 'org.hamcrest'
-        all*.exclude module: 'junit-dep'
+    configurations.all {
+        exclude group: 'commons-logging'
+        exclude group: 'log4j'
+        exclude module: 'junit-dep'
+        exclude module: 'hamcrest-core'
     }
 
     apply plugin: 'project-report'
@@ -37,11 +36,6 @@ allprojects {
 }
 
 subprojects {
-    configurations {
-        sourceArchives {
-            description = 'Artifact that contains the source code of the dependencies.'
-        }
-    }
 
     dependencies {
         compile "org.codehaus.groovy:groovy-all:${groovyVersion}"
