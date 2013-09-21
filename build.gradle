@@ -13,8 +13,6 @@ allprojects {
         logbackVersion = '1.0.12'
         slf4jVersion = '1.7.5'
         spockVersion = '0.7-groovy-2.0'
-        jacksonVersion = '2.2.1'
-        jsonPathVersion = '0.8.1'
         datomicVersion = '0.8.4159'
     }
 
@@ -29,7 +27,7 @@ allprojects {
     apply plugin: 'groovy'
 
     task generateWrapper(type: Wrapper) {
-        gradleVersion = '1.6'
+        gradleVersion = '1.7'
     }
 
     defaultTasks 'clean', 'projectReport', 'build'
@@ -42,7 +40,6 @@ subprojects {
         compile "org.slf4j:slf4j-api:${slf4jVersion}"
         compile "org.slf4j:slf4j-ext:${slf4jVersion}"
         compile "com.datomic:datomic-free:${datomicVersion}"
-        compile "com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}"
 
         runtime "org.slf4j:jul-to-slf4j:${slf4jVersion}"
         runtime "org.slf4j:log4j-over-slf4j:${slf4jVersion}"

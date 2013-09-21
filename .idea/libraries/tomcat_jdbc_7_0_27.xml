@@ -1,11 +1,11 @@
 <component name="libraryTable">
   <library name="tomcat-jdbc-7.0.27">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/artifacts-24/filestore/org.apache.tomcat/tomcat-jdbc/7.0.27/jar/65532076f0571ad819427febe10c424a109877b8/tomcat-jdbc-7.0.27.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/artifacts-26/filestore/org.apache.tomcat/tomcat-jdbc/7.0.27/jar/65532076f0571ad819427febe10c424a109877b8/tomcat-jdbc-7.0.27.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="jar://$USER_HOME$/.gradle/caches/artifacts-24/filestore/org.apache.tomcat/tomcat-jdbc/7.0.27/source/4e11072aa892dbb816235b5e5e8ae95f970f364e/tomcat-jdbc-7.0.27-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/artifacts-26/filestore/org.apache.tomcat/tomcat-jdbc/7.0.27/source/4e11072aa892dbb816235b5e5e8ae95f970f364e/tomcat-jdbc-7.0.27-sources.jar!/" />
     </SOURCES>
   </library>
 </component>
