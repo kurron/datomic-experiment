@@ -6,6 +6,7 @@
     <JAVADOC />
     <SOURCES>
       <root url="jar://$USER_HOME$/.gradle/caches/artifacts-26/filestore/org.codehaus.jackson/jackson-core-asl/1.8.9/source/29ecedc169ab9b4f7ac9cb349db6c60b67ba386d/jackson-core-asl-1.8.9-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/artifacts-26/filestore/org.codehaus.jackson/jackson-core-asl/1.8.9/source/29ecedc169ab9b4f7ac9cb349db6c60b67ba386d/jackson-core-asl-1.8.9-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

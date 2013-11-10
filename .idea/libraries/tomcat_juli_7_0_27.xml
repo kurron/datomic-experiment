@@ -6,6 +6,7 @@
     <JAVADOC />
     <SOURCES>
       <root url="jar://$USER_HOME$/.gradle/caches/artifacts-26/filestore/org.apache.tomcat/tomcat-juli/7.0.27/source/ab4541cd6c70bfffd234a95fe0aa5a7071cfbeaf/tomcat-juli-7.0.27-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/artifacts-26/filestore/org.apache.tomcat/tomcat-juli/7.0.27/source/ab4541cd6c70bfffd234a95fe0aa5a7071cfbeaf/tomcat-juli-7.0.27-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

@@ -6,6 +6,7 @@
     <JAVADOC />
     <SOURCES>
       <root url="jar://$USER_HOME$/.gradle/caches/artifacts-26/filestore/org.hornetq/hornetq-core/2.2.21.Final/source/70650b9fb4a6d41f132ff2643a7cd5fb3b3acc09/hornetq-core-2.2.21.Final-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/artifacts-26/filestore/org.hornetq/hornetq-core/2.2.21.Final/source/70650b9fb4a6d41f132ff2643a7cd5fb3b3acc09/hornetq-core-2.2.21.Final-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

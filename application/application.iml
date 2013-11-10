@@ -12,7 +12,6 @@
     <orderEntry type="library" exported="" name="commons-compiler-2.6.1" level="project" />
     <orderEntry type="library" exported="" name="fressian-0.6.3" level="project" />
     <orderEntry type="library" exported="" name="netty-3.6.6.Final" level="project" />
-    <orderEntry type="library" exported="" name="datomic-free-0.8.4159" level="project" />
     <orderEntry type="library" exported="" scope="RUNTIME" name="logback-core-1.0.12" level="project" />
     <orderEntry type="library" exported="" name="slf4j-nop-1.7.5" level="project" />
     <orderEntry type="library" exported="" name="tools.cli-0.2.2" level="project" />
@@ -35,9 +34,10 @@
     <orderEntry type="library" exported="" name="jackson-mapper-asl-1.8.9" level="project" />
     <orderEntry type="library" exported="" name="tomcat-juli-7.0.27" level="project" />
     <orderEntry type="library" exported="" name="tomcat-jdbc-7.0.27" level="project" />
-    <orderEntry type="library" exported="" name="groovy-all-2.1.7" level="project" />
     <orderEntry type="library" exported="" name="guava-14.0.1" level="project" />
     <orderEntry type="library" scope="TEST" name="spock-core-0.7-groovy-2.0" level="project" />
+    <orderEntry type="library" exported="" name="datomic-free-0.8.4260" level="project" />
+    <orderEntry type="library" exported="" name="groovy-all-2.1.9" level="project" />
   </component>
 </module>
 
