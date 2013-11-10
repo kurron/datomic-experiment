@@ -12,37 +12,37 @@ class DatomicIntegrationTest extends Specification
 {
 
     //final String uri = "datomic:free://localhost:4334/seattle"
-    final String uri = "datomic:mem://seattle"
+    final String uri = 'datomic:mem://seattle'
 
-    def "community name query"( )
+    def 'community name query'()
     {
-        given: "populated database"
+        given: 'populated database'
         Connection connection = openConnection()
         applySchema( connection )
         seedDatabase( connection )
 
-        when: "a query for all entities that have the attribute community/name is run"
+        when: 'a query for all entities that have the attribute community/name is run'
         // find all variables for community where any entity has the community/name attribute
-        def results = Peer.q( "[:find ?c :where [?c :community/name]]", connection.db() )
-        assert results
+        def results = Peer.q( '[:find ?c :where [?c :community/name]]', connection.db() )
 
-        then: "150 instances are found"
-        assert 150 == results.size()
+        then: '150 instances are found'
+        results
+        150 == results.size()
 
         // iterate over the results
         results.each {
             def id = it.get( 0 )
             def entity = connection.db().entity( id )
-            def name = entity.get( ":community/name" )
-            def neighborhood = entity.get( ":community/neighborhood" )
-            def neighborhoodName = neighborhood.get( ":neighborhood/name" )
+            def name = entity.get( ':community/name' )
+            def neighborhood = entity.get( ':community/neighborhood' )
+            def neighborhoodName = neighborhood.get( ':neighborhood/name' )
             println "${id} The community of ${name} is in the neighborhood of ${neighborhoodName}"
         }
     }
 
     private void seedDatabase( Connection connection )
     {
-        def results = connection.transact( loadTransaction( "seattle-data.dtm" ) ).get()
+        def results = connection.transact( loadTransaction( 'seattle-data.dtm' ) ).get()
         assert results
     }
 
@@ -63,7 +63,7 @@ class DatomicIntegrationTest extends Specification
 
     private void applySchema( Connection connection )
     {
-        def schemaInsertResults = connection.transact( loadTransaction( "seattle-schema.dtm" ) ).get()
+        def schemaInsertResults = connection.transact( loadTransaction( 'seattle-schema.dtm' ) ).get()
         assert schemaInsertResults
     }
 
