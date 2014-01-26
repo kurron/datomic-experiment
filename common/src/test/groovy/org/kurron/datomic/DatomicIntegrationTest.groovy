@@ -46,9 +46,9 @@ class DatomicIntegrationTest extends Specification
         assert results
     }
 
-    private def loadTransaction( String resource )
+    private List loadTransaction( String resource )
     {
-        def seedTransaction = Util.readAll( loadResource( resource ) ).get( 0 )
+        List seedTransaction = Util.readAll( loadResource( resource ) ).first() as List
         assert seedTransaction
         seedTransaction
     }
