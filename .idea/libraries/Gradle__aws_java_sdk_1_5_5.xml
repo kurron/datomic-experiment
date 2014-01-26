@@ -1,5 +1,5 @@
 <component name="libraryTable">
-  <library name="aws-java-sdk-1.5.5">
+  <library name="Gradle: aws-java-sdk-1.5.5">
     <CLASSES>
       <root url="jar://$USER_HOME$/.gradle/caches/artifacts-26/filestore/com.amazonaws/aws-java-sdk/1.5.5/jar/a0d6d8be36fcba60859f850bfda48dc5801b445b/aws-java-sdk-1.5.5.jar!/" />
     </CLASSES>
